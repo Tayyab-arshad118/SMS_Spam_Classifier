@@ -10,7 +10,9 @@ SMS-CLASSIFIER/
 │   ├── SMS_SPAM_DETECTION.ipynb    # Main Jupyter notebook with analysis and model training
 │   └── spam.csv                     # Dataset containing labeled SMS messages
 └── SMS_CLASS/
-    └── app.py                       # Python application file
+    └── app.py                        #Python application file
+    └── model.pkl
+    └── vectorizer.pk                       
 ```
 
 ## Dataset
@@ -62,5 +64,3 @@ The Flask/Streamlit application file for:
 - The system can be deployed as a real-time SMS filtering solution
 
 ---
-
-Feel free to modify this README as needed for your project!
