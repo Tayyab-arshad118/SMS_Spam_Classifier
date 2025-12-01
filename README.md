@@ -10,10 +10,17 @@ SMS-CLASSIFIER/
 │   ├── SMS_SPAM_DETECTION.ipynb    # Main Jupyter notebook with analysis and model training
 │   └── spam.csv                     # Dataset containing labeled SMS messages
 └── SMS_CLASS/
+    └── nltk_data
     └── app.py
     └── model.pkl
     └── vectorizer.pkl                           
 ```
+
+
+## 🚀 Try it Live
+
+**[Launch App →](https://tayyab-spam-busterr.streamlit.app/)**
+
 
 ## Dataset
 - **File**: `code/spam.csv`
