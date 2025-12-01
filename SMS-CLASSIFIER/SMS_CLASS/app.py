@@ -7,6 +7,8 @@ from nltk.stem.porter import PorterStemmer
 import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+nltk.download('stopwords')
+
 
 def text_trans(text):
     text = text.lower()
@@ -45,4 +47,5 @@ if st.button("Pridect"):
     if result ==1:
         st.header("Spam")
     else:
+
         st.header("not Spam")
