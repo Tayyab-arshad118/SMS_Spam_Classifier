@@ -16,24 +16,25 @@ if not os.path.exists(nltk_data_path):
 nltk.data.path.append(nltk_data_path)
 
 # Download required NLTK resources into that folder
-nltk.download('punkt', download_dir=nltk_data_path)
+# FIXED: Download punkt_tab instead of punkt for NLTK 3.9+
+nltk.download('punkt_tab', download_dir=nltk_data_path)
 nltk.download('stopwords', download_dir=nltk_data_path)
 
 # -------------------- Text Preprocessing --------------------
 def text_trans(text):
     text = text.lower()
     text = nltk.word_tokenize(text)
-
+    
     # Remove non-alphabetic tokens
     y = [i for i in text if i.isalpha()]
-
+    
     # Remove stopwords and punctuation
     y = [i for i in y if i not in stopwords.words('english') and i not in string.punctuation]
-
+    
     # Apply stemming
     ps = PorterStemmer()
     y = [ps.stem(i) for i in y]
-
+    
     return " ".join(y)
 
 # -------------------- Load Model & Vectorizer --------------------
@@ -61,7 +62,7 @@ if st.button("Predict"):
         transformed_text = text_trans(input_sms)
         vector = tfidf.transform([transformed_text])
         result = model.predict(vector)[0]
-
+        
         # Show result
         if result == 1:
             st.header("⚠️ Spam")
