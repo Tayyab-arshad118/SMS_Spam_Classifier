@@ -34,8 +34,16 @@ def text_trans(text):
 
     return " ".join(y)
 
-tfidf = pickle.load(open("vectorizer.pkl",'rb'))
-model = pickle.load(open("model.pkl",'rb'))
+import os
+
+# get the folder where this script lives
+BASE_DIR = os.path.dirname(__file__)
+
+tfidf_path = os.path.join(BASE_DIR, "vectorizer.pkl")
+model_path = os.path.join(BASE_DIR, "model.pkl")
+
+tfidf = pickle.load(open(tfidf_path, 'rb'))
+model = pickle.load(open(model_path, 'rb'))
 
 st.title("📧 Spam SMS/Email Classifier")
 st.markdown("Enter the message below to check if it's Ham (Not Spam) or Spam.")
@@ -49,3 +57,4 @@ if st.button("Pridect"):
     else:
 
         st.header("not Spam")
+
